@@ -1,8 +1,10 @@
 import React from "react";
+import {useState} from 'react'
 
 
 function AddtoCart({count, setCount, setCost, cost, setCartItems}) {
  
+const [itemsAdded, setItemsAdded] = useState(false)
 
   const decrementHandler = () => {
     setCount((prevCount) => prevCount + 1);
@@ -19,6 +21,10 @@ function AddtoCart({count, setCount, setCost, cost, setCartItems}) {
     let amount = count * 125
     setCost(amount)
     setCartItems(count)
+    setItemsAdded(true)
+    setTimeout(() => {
+      setItemsAdded(false);
+    }, 4000);
   }
 
 
@@ -73,6 +79,7 @@ function AddtoCart({count, setCount, setCost, cost, setCartItems}) {
       </div>
 
       <div>
+        
         <button 
         onClick={addToCartHandler}
         className="cart-btn flex gap-[1rem] items-center justify-center bg-orange text-white font-bold h-[56px] w-full desktop:w-[272px] p-[1.5em] rounded ">
@@ -85,6 +92,9 @@ function AddtoCart({count, setCount, setCost, cost, setCartItems}) {
           </svg>
           Add to cart
         </button>
+        <span className="animate-flash text-orange text-[1rem] text-right font-bold">
+          {itemsAdded ? "Items added to cart" : ""}
+        </span>
       </div>
       
     </div>
