@@ -5,6 +5,7 @@ import {useState} from 'react'
 function AddtoCart({count, setCount, setCost, cost, setCartItems}) {
  
 const [itemsAdded, setItemsAdded] = useState(false)
+const buttonActive = count > 0
 
   const decrementHandler = () => {
     setCount((prevCount) => prevCount + 1);
@@ -82,6 +83,7 @@ const [itemsAdded, setItemsAdded] = useState(false)
         
         <button 
         onClick={addToCartHandler}
+        disabled={!buttonActive}
         className="cart-btn flex gap-[1rem] items-center justify-center bg-orange text-white font-bold h-[56px] w-full desktop:w-[272px] p-[1.5em] rounded ">
           <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
             <path
