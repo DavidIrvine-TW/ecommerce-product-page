@@ -7,7 +7,7 @@ function App() {
   const [menuState, setMenuState] = useState(false);
   const [cartActive, setCartActive] = useState(false);
   const [cartItems, setCartItems] = useState(0);
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const [cost, setCost] = useState(0)
   console.log(cost)
   
